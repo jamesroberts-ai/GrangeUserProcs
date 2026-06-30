@@ -1,0 +1,44 @@
+* Owner = Brian Pietsch
+* Extracts addition data for Elara project
+
+RUN UT.BP PZZZ214 *CONTROL*<<F(CONTROL,MASTER.ACCOUNT,1,0,0)>>*1
+RUN UT.BP PZZZ214 BWBY
+TERM 300,33
+
+LIST CHIT _
+WITH MACTIV = 'R' _
+WITH ADDN.CODE _
+_
+ID.SUP MCNOTE                                 COL.HDG "Additive Chit " FMT "14L" _
+MOPCD                                         COL.HDG "Operation Code" _
+MAST.OPCD                                     COL.HDG "Operation Master" _
+EVAL "'-'"                                    COL.HDG "Date Started" FMT "10R" _
+EVAL "'-'"                                    COL.HDG "Time Started" FMT "8R" _
+CREATE.DATE                                   COL.HDG "Date Created" _
+CREATE.TIME                                   COL.HDG "Time Created" _
+_
+ADDN.TANK                                     COL.HDG "Tank Added To          "  _
+EVAL "'-'"                                    COL.HDG "Previous Chit " FMT "14L" _
+EVAL "'-'"                                    COL.HDG "Next Chit     " FMT "14L" _
+MTBATCH                                       COL.HDG "Batch  " FMT "7L" _
+_
+ADDN.CODE                                     COL.HDG "Add Code" FMT "4L" _
+MADESCP                                       COL.HDG "Add Description" FMT "72L" _
+EVAL "'-'"                                    COL.HDG "Lot Num " FMT "8R" _
+ADDN.RATE                                     COL.HDG "Rate Added" FMT "9R" _
+ADDN.UNIT                                     COL.HDG "Rate UOM" FMT "6T" _
+ADDN.QTY                                      COL.HDG "Quantity " FMT "9R" _
+ADDN.AUOMISS                                  COL.HDG "Issuing UOM " FMT "12T" _
+MRDATE                                        COL.HDG "Requested Date" FMT "10R" _
+_
+HDR.SUP COL.SUP COUNT.SUP
+
+* Repeated for each Bulkwine Account
+* Then finishes with
+
+RUN UT.BP PZZZ214 *
+TERM
+
+* Written 16 Jan 2026, for Elara project
+* Aligns with WM.838-03
+* Removed 'WITH EVAL "TRANS(MOPS,MOPCD,'OTYPE','X')"='A' _' on 24 Jun 2026

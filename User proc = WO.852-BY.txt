@@ -1,0 +1,38 @@
+* Owner = Brian Pietsch
+* Extracts addition reconciliation data for Winery Operations team
+* Runs at 12.05 pm and 8.05 pm daily
+
+
+*PZZZ019
+DATA DEFAULT,,,999999,300,,,,,,WO.852-BY
+*PZZZ072
+DATA WO.852-BY,Incomplete chits at TWEB with Additives,300
+
+LIST CHIT _
+WITH MACTIV = 'R' _
+WITH ADDN.CODE _
+_
+ID.SUP MCNOTE                                 COL.HDG "Additive Chit " FMT "14L" _
+MOPCD                                         COL.HDG "Operation Code" _
+MAST.OPCD                                     COL.HDG "Operation Master" _
+CREATE.DATE                                   COL.HDG "Date Created" _
+CREATE.TIME                                   COL.HDG "Time Created" _
+_
+MRDATE                                        COL.HDG "Requested Date" FMT "10R" _
+ADDN.TANK                                     COL.HDG "Tank Added To          "  _
+_
+ADDN.CODE                                     COL.HDG "Add Code" FMT "4L" _
+MADESCP                                       COL.HDG "Add Description" FMT "72L" _
+ADDN.RATE                                     COL.HDG "Rate Added" FMT "9R" _
+ADDN.UNIT                                     COL.HDG "Rate UOM" FMT "6T" _
+ADDN.QTY                                      COL.HDG "Quantity " FMT "9R" _
+ADDN.AUOMISS                                  COL.HDG "Issuing UOM " FMT "12T" _
+_
+HEADING "<<PZZZ072.HEADING>>"_
+HDR.SUP COUNT.SUP
+
+* Copied from WM.838-03A on 9 Jun 2026
+* File name is WO852BY
+* WITH EVAL "TRANS(MOPS,MOPCD,'OTYPE','X')"='A' _
+* RUN UT.BP PZZZ214 BWBY
+* TERM 300,33
