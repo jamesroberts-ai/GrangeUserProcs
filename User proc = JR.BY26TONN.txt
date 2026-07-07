@@ -1,0 +1,16 @@
+* Owner = James Roberts
+* Summarises total tonnes intake to Barossa winery for vintage 2026, by end use
+* (Red/White/Fortified/Rose/Other) - active weighnotes only
+
+LIST GRAPERECPT _
+WITH ACTIVITY = ' ' _
+WITH VINTAGE = '2026' _
+WITH WINERY.LOC = 'BY' _
+_
+BY USEDESC _
+BREAK.ON USEDESC                              COL.HDG "End Use" FMT "20L" _
+_
+TOTAL NETT                                    COL.HDG "Tonnes" FMT "12R,2" _
+DET.SUP
+
+* Written 7 Jul 2026, for James Roberts
