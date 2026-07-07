@@ -1,0 +1,16 @@
+# Grange file: OP.TRACE.CTL,source: winemaking.xlsm/Op.Ctl,downloaded: 2020-01-22
+Field Name,Type,Field No,Field Definition,Conversion Code,Column Heading,Output Format,Depth,Assoc,DESC,Key,Examples,Comment
+@ID,D,0,,,OP.TRACE.CTL,10L,S,,Default record ID for RetrieVe,,,
+STATUS,D,1,,,STATUS,10L,S,,Status of Updating; Null = Normal; REBUILD = Rebuild in progress; COPY = Updated Rebuilt file is being copied to live; REDO = Redo all,,,
+CHIT.NOS,D,2,,,CHIT NOS,15L,M,CHITS,MV'd list of CHIT nos waiting to be processed,,,
+CHITS,D,2,,,Chits Waiting,15L,M,CHITS,List of Chits waiting to be processed,,,
+REBUILD.CHITS,D,3,,,Rebuild Chits,15L,M,,List of Chits to be reprocessed because of a Rebuild,,,
+REPROCESS,D,3,,,REPROCESS,15L,M,,List of CHit nos to reproces after a Rebuild,,,
+RUN.FLAG,D,4,,,RUN,1L,S,,Flag to indicate update program is already running,,,
+RUNNING,D,4,,,RUNNING,1L,S,,Flag to indicate whether the Phantom is already running,,,
+INT.STAT.MSG,D,5,,,Status and Messages,40L,S,,Internal status and info/error messages,,,
+INIT.VAR,D,6,,,Init Var,1L,S,,Flag indicating phantom needs to reinitialise its variables due to some maintenance action,,,
+EOD.REBUILD.STREAMS,D,7,,,Rebuild Streams,4L,S,,The string indicating which streams have just been rebuilt by the overnight run - controls what happens when REDO status.,,,
+REDOFLAGS,D,8,,,Redo Flag,1L,M,CHITS,If this flag = 1 the chit is being reprocessed after a rebuild run,,,
+DATE.LAST.START,D,9,,D4/,Date Last Started,8R,S,,,,,
+JK.REBUILD.COUNT,I,,"DCOUNT(REBUILD.CHITS,@VM)",MD00P,No of chits to rebuild,4R,S,,No of values in rebuild queue,,,

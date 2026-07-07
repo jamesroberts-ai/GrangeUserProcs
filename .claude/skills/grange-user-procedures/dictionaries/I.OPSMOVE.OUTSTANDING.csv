@@ -1,0 +1,4 @@
+# Grange file: I.OPSMOVE.OUTSTANDING,source: winemaking.xlsm/Op.Out,downloaded: 2020-01-22
+Field Name,Type,Field No,Field Definition,Conversion Code,Column Heading,Output Format,Depth,Assoc,DESC,Key,Examples,Comment
+@ID,D,0,,,I.OPSMOVE.OUTSTANDING,10L,S,,Default record ID for RetrieVe,,,
+CHIT.NOS,D,1,,,OUTSTANDING CHIT NOS.,15L,M,,Outstanding Chit Nos,,,

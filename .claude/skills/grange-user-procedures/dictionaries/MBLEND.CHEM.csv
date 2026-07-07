@@ -1,0 +1,18 @@
+# Grange file: MBLEND.CHEM,source: winemaking.xlsm/BLC,downloaded: 2019-11-28
+Field Name,Type,Field No,Field Definition,Conversion Code,Column Heading,Output Format,Depth,Assoc,DESC,Key,Examples,Comment
+@ID,D,0,,,MBLEND.CHEM,10L,S,,Default record ID for RetrieVe,,,
+TBLEND.CNOTE,D,0,,,,15L,S,,Key,,,
+READINGNO,D,1,,,Reading,3R,M,READ,Reading Number,,,
+VALUE,D,2,,,Result,8R,M,READ,Result,,,
+OAK.TYPE,D,3,,,Oak Type,15L,S,,Oak Type,,,
+TASTE.NOTES,D,4,,,,30L,M,TASTE,Tasting Notes,,,
+PRODN.NOTES,D,5,,,,30L,M,PRODN,Production Notes,,,
+HALF.HR,D,6,,,Half Hour,8R,M,READ,Half Hourly Reading,,,
+FINAL,D,7,,,Final,8R,M,READ,Final Reading,,,
+CHEADING,I,,"TRANS(CHEMREAD,READINGNO,CHEADING,'X')",,CHEM TEST,6T,M,READ,Chemistry Test Identification Headings,,,
+CNOTE,I,,"FIELD(@ID,'*',1)",,Chit,11L,S,,Chit Number,,,
+JK.CHIT.YEAR,I,,"FIELD(@ID,'*',2)[4,2]",,Chit Year,2R,S,,Year of the chit,,,
+NO.PRODN,I,,"COUNT(PRODN.NOTES,@VM)",,No. Prodn,3R,S,,Production Notes # Lines,,,
+NO.TASTE,I,,"COUNT(TASTE.NOTES,@VM)",,No. Taste,3R,S,,Tasting Notes # Lines,,,
+TBLEND,I,,"FIELD(@ID,'*',3)",,Blend,10L,S,,Blend Code,,,
+WINERY.CD,I,,"FIELD(@ID,'*',2)",,Winery Code,2L,S,,Winery Code,,,

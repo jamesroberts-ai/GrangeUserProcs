@@ -1,0 +1,18 @@
+# Grange file: LOT,source: winemaking.xlsm/Lot,downloaded: 2019-11-28
+Field Name,Type,Field No,Field Definition,Conversion Code,Column Heading,Output Format,Depth,Assoc,DESC,Key,Examples,Comment
+@ID,D,0,,,LOT,10L,S,,Default record ID for RetrieVe,,,
+LOT.ID,D,0,,,Lot Id,8R,,,Lot Id,,,
+DESC,D,1,,,Description,40L,S,,Item description,,,
+FLAG,D,2,,,Active,1L,S,,"'A' = Active, 'N' = Active Allergen, 'I' = Inactive, 'V' = Inactive Allergen",,,
+UOMS,D,3,,,UOMs,10L,S,,Valid units of measure separated by commas,,,
+ITEM,D,4,,,JDE Item,10L,S,,JDE item number,,,
+BR.PLANT,D,5,,,Plant,3L,M,BRPLANT,JDE branch plant,,,
+BRANCH,D,5,,,Plant,3L,M,BRPLANT,JDE branch plant,,,
+PRE2014LOTS,D,6,,,PRE2014LOTS,8L,M,PRE2014LOTS,Pre 2014 lot numbers only populated against lots that are actually tanks to hold the lots traced to that tank pre 2014 before qty traced.,,,
+SOH,D,7,,,SOH,10R,M,BRPLANT,SOH,,,
+LEN.ID,I,,LEN(@ID),,LEN ID,2R,S,,,,,
+LOT.USED,I,,"SUBR(SUBR.PENBW:""PBWI.LOT.USED"",LOT.ID)",,Used,1L,S,,Set to 'Y' if the Lot has been used (present in the wine in a tank),,,
+NUMERIC.ID,I,,IF NUM(LOT.ID) THEN 'Y' ELSE 'N',,,1L,,,,,,
+PRODNAME,I,,"TRANS(ITEM.MSTR,ITEM,'PRODNAME','X')",,Product Name,30T,S,,Product Name Description,,,
+UDESC,I,,UPCASE(DESC),,Description,40L,S,,Uppercase Item description,,,
+@,PH,,LOT.ID DESC FLAG UOMS ITEM BR.PLANT ID.SUP,,,,,,all details,,,

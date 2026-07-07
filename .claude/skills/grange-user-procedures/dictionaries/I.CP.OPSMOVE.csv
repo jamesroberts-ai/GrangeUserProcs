@@ -1,0 +1,8 @@
+# Grange file: I.CP.OPSMOVE,source: winemaking.xlsm/CP.Ops,downloaded: 2020-01-22
+Field Name,Type,Field No,Field Definition,Conversion Code,Column Heading,Output Format,Depth,Assoc,DESC,Key,Examples,Comment
+@ID,D,0,,,I.CP.OPSMOVE,10L,S,,Default record ID for RetrieVe,,,
+CRSLOT,D,0,,,Crush Slot,5R,S,,Crush slot number,,,
+CRUSHNOTE,D,1,,,Crushnote,10L,M,CRUSHNOTE,Crush note number (key to OPSMOVE & GRDOCKET),,,
+CN.COMPLETE,D,2,,,Crushnote Complete,1L,M,CRUSHNOTE,Crush note complete,,,
+JK.MADATE,I,,"TRANS(RECOVERIES,CRUSHNOTE,MADATE,'X')",D2/,Compl. Date,8R,M,,,,,
+PITWINERY,I,,"TRANS(CRUSHPLAN,@ID,CRPIT,'X') ; TRANS(CRUSHPIT,@,PITWINERY,'X')",,Pit Winery,2T,S,,WINERY WHERE CRUSH PIT LOCATED,,,
